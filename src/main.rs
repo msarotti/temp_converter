@@ -20,7 +20,7 @@ fn main() {
         };
 
         match prg_mode {
-            1 => println!("Fahrenheit to Celsius!"),
+            1 => fahrenheit_to_celsius(),
             2 => println!("Celsius to Fahrenheit!"),
             3 => {
                 println!("Goodbye!");
@@ -30,4 +30,22 @@ fn main() {
         }
     }
     
+}
+
+fn fahrenheit_to_celsius() {
+    let mut degree = String::new();
+    println!("Please insert temperature: (r to return)");
+    io::stdin()
+        .read_line(&mut degree)
+        .expect("Failed to read line");
+    // if degree == "r" {
+    //     break;
+    // }
+    let degree: f32 = match degree.trim().parse() {
+        Ok(num) => num,
+        Err(_) => return
+    };
+
+    let to_celsius: f32 = ((degree - 32.0) * 5.0) / 9.0;
+    println!("Celsiuse degreees: {}", to_celsius);
 }
