@@ -1,7 +1,7 @@
 use std::io;
 
 fn main() {
-    println!("Welcome to temperature converter!");
+    println!("\n(°--- Welcome To Temperature Converter ---°)\n");
     loop {
         println!("Please insert the mode: \n
             1 -> Fahrenheit to Celsius,
