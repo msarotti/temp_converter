@@ -1,19 +1,22 @@
 use std::io;
+mod converter;
 
 fn main() {
     println!("\n(°--- Welcome To Temperature Converter ---°)\n");
     loop {
-        println!("Please insert the mode: \n
+        println!(
+            "Please insert the mode:
             1 -> Fahrenheit to Celsius,
             2 -> Celsius to Fahrenheit,
             3 -> Exit the program,
-        ");
+        "
+        );
         let mut prg_mode = String::new();
 
         io::stdin()
             .read_line(&mut prg_mode)
             .expect("Failed to read line");
-        
+
         let prg_mode: u32 = match prg_mode.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
@@ -29,51 +32,19 @@ fn main() {
             _ => println!("Invalid Option, please retry"),
         }
     }
-    
 }
 
 fn fahrenheit_to_celsius() {
+    let fahrenheit = converter::fahrenheit::Fahrenheit::new();
     loop {
-        let mut degree = String::new();
-        println!("Please insert temperature: (type exit to return)");
-        io::stdin()
-            .read_line(&mut degree)
-            .expect("Failed to read line");
-        if "exit".eq(degree.trim()) {
-            return
-        }
-        let degree: f32 = match degree.trim().parse() {
-            Ok(num) => num,
-            Err(_) => {
-                println!("Please enter valid number");
-                continue
-            }
-        };
-    
-        let to_celsius: f32 = ((degree - 32.0) * 5.0) / 9.0;
-        println!("Celsiuse degreees: {}", to_celsius);
+        fahrenheit.to_celsius();
     }
 }
 
 fn celsius_to_fahrenheit() {
+    let celsius = converter::celsius::Celsius::new();
     loop {
-        let mut degree = String::new();
-        println!("Please insert temperature: (type exit to return)");
-        io::stdin()
-            .read_line(&mut degree)
-            .expect("Failed to read line");
-        if "exit".eq(degree.trim()) {
-            return
-        }
-        let degree: f32 = match degree.trim().parse() {
-            Ok(num) => num,
-            Err(_) => {
-                println!("Please enter valid number");
-                continue
-            }
-        };
-    
-        let to_fahrenheit: f32 = (degree * 1.8) + 32.0;
-        println!("Fahrenheit degreees: {}", to_fahrenheit);
+        celsius.to_fahrenheit();
+        
     }
 }
