@@ -4,7 +4,7 @@ pub struct Celsius {}
 
 impl Celsius {
     pub fn new() -> Self {
-        Celsius {  }
+        Celsius {}
     }
 
     pub fn to_fahrenheit(&self) -> () {
@@ -19,11 +19,12 @@ impl Celsius {
         let degree: f32 = match degree.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-            println!("Please enter valid number");
-            return;
+                println!("Please enter valid number");
+                return;
             }
         };
         let to_fahrenheit: f32 = (degree * 1.8) + 32.0;
         println!("Fahrenheit degreees: {}", to_fahrenheit);
     }
 }
+

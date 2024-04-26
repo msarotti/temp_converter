@@ -1,10 +1,10 @@
 use std::io;
 
-pub struct Fahrenheit { }
+pub struct Fahrenheit {}
 
 impl Fahrenheit {
     pub fn new() -> Self {
-        Fahrenheit {  }
+        Fahrenheit {}
     }
 
     pub fn to_celsius(&self) -> () {
@@ -28,3 +28,4 @@ impl Fahrenheit {
         println!("Celsiuse degreees: {}", to_celsius);
     }
 }
+

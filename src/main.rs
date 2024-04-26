@@ -1,4 +1,7 @@
+use converter::celsius::Celsius;
+use converter::fahrenheit::Fahrenheit;
 use std::io;
+
 mod converter;
 
 fn main() {
@@ -35,16 +38,15 @@ fn main() {
 }
 
 fn fahrenheit_to_celsius() {
-    let fahrenheit = converter::fahrenheit::Fahrenheit::new();
+    let fahrenheit = Fahrenheit::new();
     loop {
         fahrenheit.to_celsius();
     }
 }
 
 fn celsius_to_fahrenheit() {
-    let celsius = converter::celsius::Celsius::new();
+    let celsius = Celsius::new();
     loop {
         celsius.to_fahrenheit();
-        
     }
 }
